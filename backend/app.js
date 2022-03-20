@@ -1,12 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-
+const router = require("./routes/bookRoutes");
 const app = express();
 
-app.use("/", (req, res, next) => {
-  res.send("This is the home route");
-});
+app.use("/books", router);
 
 mongoose
   .connect(
