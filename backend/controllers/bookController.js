@@ -34,5 +34,20 @@ const addBook = async (req, res, next) => {
   return res.status(201).json({ book });
 };
 
+const getById = async (req, res, next) => {
+  let book;
+  let id = req.params.id;
+  try {
+    book = await Book.findById(id);
+  } catch (err) {
+    console.log(err);
+  }
+  if (!book) {
+    return res.status(404).json({ message: "No Book found" });
+  }
+  return res.status(200).json({ book });
+};
+
 exports.getAllBooks = getAllBooks;
 exports.addBook = addBook;
+exports.getById = getById;
