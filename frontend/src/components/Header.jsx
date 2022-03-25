@@ -4,7 +4,7 @@ import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState();
 
   return (
     <div>
