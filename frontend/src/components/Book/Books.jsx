@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Book from "./Book";
+import "./book.css";
 
 const URL = "http://localhost:3001/books";
 
@@ -20,9 +21,9 @@ const Books = () => {
       <ul>
         {books?.map((book) => {
           return (
-            <div key={book._id}>
+            <li key={book._id}>
               <Book book={book} />
-            </div>
+            </li>
           );
         })}
       </ul>
