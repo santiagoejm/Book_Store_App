@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./book.css";
 
 const Book = (props) => {
@@ -12,7 +13,9 @@ const Book = (props) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <h3>{price} Eur</h3>
-      <Button sx={{ mt: "auto" }}>Update</Button>
+      <Button LinkComponent={Link} to={`/books/${_id}`} sx={{ mt: "auto" }}>
+        Update
+      </Button>
       <Button sx={{ mt: "auto" }}>Delete</Button>
     </div>
   );
