@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BookDetail = () => {
   const [inputs, setInputs] = useState({});
   const id = useParams().id;
   const [checked, setChecked] = useState(false);
+  const history = useNavigate();
 
   useEffect(() => {
     const fetchHandler = async () => {
@@ -25,12 +26,29 @@ const BookDetail = () => {
     fetchHandler();
   }, [id]);
 
+  const sendRequest = async () => {
+    await axios
+      .put(`http://localhost:3001/books/${id}`, {
+        name: String(inputs.name),
+        author: String(inputs.author),
+        description: String(inputs.description),
+        price: Number(inputs.price),
+        image: String(inputs.image),
+        available: Boolean(checked),
+      })
+      .then((res) => res.data);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    sendRequest().then(() => history("/books"));
   };
 
   const handleChange = (e) => {
-    console.log(e);
+    setInputs((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
