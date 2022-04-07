@@ -10,9 +10,11 @@ const Header = () => {
     <div>
       <AppBar sx={{ backgroundColor: "#030303" }} position="sticky">
         <Toolbar>
-          <Typography>
-            <CollectionsBookmarkIcon />
-          </Typography>
+          <NavLink to="/" style={{ color: "#fff" }}>
+            <Typography>
+              <CollectionsBookmarkIcon />
+            </Typography>
+          </NavLink>
           <Tabs
             sx={{ ml: "auto" }}
             textColor="inherit"
