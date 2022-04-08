@@ -10,13 +10,14 @@ li {
   width: 250px;
   max-width: 250px;
   max-height: 400px;
+  margin-bottom: 1rem;
 }
 
 .card {
   margin: auto;
-  padding: 5px;
+  padding: 3px;
   width: 100%;
-  height: 100%;
+  /* max-height: 400px; */
   box-shadow: 5px 5px 10px #ccc;
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@ li {
 
 .card > img {
   width: 100%;
-  height: 300px;
+  max-height: 200px;
 }
 
 .card > article {
